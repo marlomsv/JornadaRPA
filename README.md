@@ -1,2 +1,2 @@
 # JornadaRPA
-Repositório para os códigos que estou aprendendo!
+Repositório para os códigos da Jornada RPA!
