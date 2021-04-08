@@ -65,9 +65,9 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Banco_Insere_Registros" sap:VirtualizedContainerService.HintSize="755,1024" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -112,7 +112,7 @@
         </ui:Target>
       </ui:TypeInto.Target>
     </ui:TypeInto>
-    <If Condition="[In_Row.item(2).ToString = &quot;Débito&quot;]" sap:VirtualizedContainerService.HintSize="713,264" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[In_Row.item(2).ToString.Substring(0,1) = &quot;D&quot;]" sap:VirtualizedContainerService.HintSize="713,264" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="0" DelayMS="0" DisplayName="Click 'WindowsForms10.BUTTON.a...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
           <ui:Click.CursorPosition>
