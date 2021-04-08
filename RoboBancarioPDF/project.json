@@ -1,6 +1,6 @@
 {
-  "name": "Robo_Bancario",
-  "description": "Transactional Process",
+  "name": "RoboBancarioPDF",
+  "description": "Template com as definições pré estabelecidas para uso com as aplicações bancárias.",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.10.2-preview]",
@@ -12,7 +12,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.2.0.0",
-  "projectVersion": "1.0.1",
+  "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
