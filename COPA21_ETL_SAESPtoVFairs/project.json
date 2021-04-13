@@ -1,6 +1,6 @@
 {
-  "name": "Estudo Nomes",
-  "description": "Blank Process",
+  "name": "COPA21_ETL_SAESPtoVFairs",
+  "description": "Este robô tem como finalidade extrair os dados do sistema SAESP dos participantes do evento e em seguida Transformar  os dados, posteriormente gravando em um arquivo csv para que seja feito carga no sitema do vFAIRS. No final disto ele irá enviar um e-mail para os participantes com os dados de Login e Senha e o Direct Login Link.",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
@@ -44,7 +44,7 @@
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "ef3c0870-aa8a-4f5b-a134-6af152686f50",
+      "uniqueId": "b7bd738a-f63a-48ad-86f9-2f9c6982bc4d",
       "input": [],
       "output": []
     }

@@ -5,10 +5,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1129,2632</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1129,2754</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Transform_Nomes_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="58">
+    <scg:List x:TypeArguments="x:String" Capacity="60">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -39,10 +39,11 @@
       <x:String>UiPath.CSV</x:String>
       <x:String>UiPath.CSV.Activities</x:String>
       <x:String>UiPath.Excel</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="29">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -72,9 +73,10 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Transform_Nomes" sap:VirtualizedContainerService.HintSize="630,2567" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Transform_Nomes" sap:VirtualizedContainerService.HintSize="771,2689" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="Nomes" />
       <Variable x:TypeArguments="x:String" Name="FirstUpper" />
@@ -92,19 +94,22 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[In_DataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="588,2113" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[In_DataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="729,2597" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="554,1993" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="695,2477" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="LastCodigo" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Código" sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign DisplayName="Código" sap:VirtualizedContainerService.HintSize="653,60" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[Codigo]</OutArgument>
               </Assign.To>
@@ -112,7 +117,7 @@
                 <InArgument x:TypeArguments="x:String">[CurrentRow.Item(0).ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Nomes Para Credencias" sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign DisplayName="Nomes Para Credencias" sap:VirtualizedContainerService.HintSize="653,60" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[NomeCredencial]</OutArgument>
               </Assign.To>
@@ -120,47 +125,134 @@
                 <InArgument x:TypeArguments="x:String">[CurrentRow.Item(3).ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Array dos Nomes para separar" sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign DisplayName="Remove Espaço Final do Nome" sap:VirtualizedContainerService.HintSize="653,60" sap2010:WorkflowViewState.IdRef="Assign_10">
               <Assign.To>
-                <OutArgument x:TypeArguments="s:String[]">[Nomes]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[NomeCredencial]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="s:String[]">[NomeCredencial.Split(New Char(){" "c})]</InArgument>
+                <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(NomeCredencial,"\s+$","")]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Primeiro Nome todo Maiusculo" sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[FirstUpper]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[nomes(0).ToString]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign DisplayName="Primiro Nome primeira letra Maiuscula" sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_5">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[FirstName]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[UCase(Left(FirstUpper,1)) &amp; LCase(Mid(FirstUpper,2))]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_6">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[LastUpper]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[nomes(nomes.count-1).ToString]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_7">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[LastName]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[UCase(Left(LastUpper,1)) &amp; LCase(Mid(LastUpper,2))]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <If Condition="[NomeCredencial.Contains(&quot; &quot;)]" sap:VirtualizedContainerService.HintSize="653,910" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Extrai nomes do campo &quot;Nomes para Crendecial&quot;" sap:VirtualizedContainerService.HintSize="304,552" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Array dos Nomes para separar" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="s:String[]">[Nomes]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="s:String[]">[NomeCredencial.Split(New Char(){" "c})]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Primeiro Nome todo Maiusculo" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[FirstUpper]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Nomes(0).ToString]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Primiro Nome primeira letra Maiuscula" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[FirstName]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[UCase(Left(FirstUpper,1)) &amp; LCase(Mid(FirstUpper,2))]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[LastUpper]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Nomes(Nomes.count-1).ToString]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[LastName]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[UCase(Left(LastUpper,1)) &amp; LCase(Mid(LastUpper,2))]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Extrai nomes do campo &quot;Nomes&quot;" sap:VirtualizedContainerService.HintSize="304,752" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="NomeCompleto" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Nome Completo" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[NomeCompleto]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[CurrentRow.Item(2).ToString]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Remove Espaço Final do Nome" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[NomeCompleto]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(NomeCompleto,"\s+$","")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Array dos Nomes para separar" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="s:String[]">[Nomes]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="s:String[]">[NomeCompleto.Split(New Char(){" "c})]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Primeiro Nome todo Maiusculo" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[FirstUpper]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Nomes(0).ToString]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Primiro Nome primeira letra Maiuscula" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[FirstName]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[UCase(Left(FirstUpper,1)) &amp; LCase(Mid(FirstUpper,2))]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[LastUpper]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Nomes(Nomes.count-1).ToString]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[LastName]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[UCase(Left(LastUpper,1)) &amp; LCase(Mid(LastUpper,2))]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Else>
+            </If>
+            <Assign sap:VirtualizedContainerService.HintSize="653,60" sap2010:WorkflowViewState.IdRef="Assign_16">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[Email]</OutArgument>
               </Assign.To>
@@ -168,7 +260,7 @@
                 <InArgument x:TypeArguments="x:String">[CurrentRow.Item(14).ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+            <Assign sap:VirtualizedContainerService.HintSize="653,60" sap2010:WorkflowViewState.IdRef="Assign_17">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[CPF]</OutArgument>
               </Assign.To>
@@ -176,52 +268,14 @@
                 <InArgument x:TypeArguments="x:String">[CurrentRow.Item(1).ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:GenerateDataTable ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" AutoDetectTypes="False" CSVParsing="True" ColumnSeparators="," DataTable="[Saida]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="512,200" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[Codigo+&quot;,&quot;+FirstName+&quot;,&quot;+LastName+&quot;,&quot;+Email+&quot;,&quot;+CPF]" />
-            <ui:AppendCsvFile Encoding="{x:Null}" DataTable="[Saida]" Delimitator="Comma" DisplayName="Append to CSV" FilePath="Load\Import.csv" sap:VirtualizedContainerService.HintSize="512,132" sap2010:WorkflowViewState.IdRef="AppendCsvFile_1" />
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="512,458" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-              <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,380" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="Load\Output.xlsx">
-                    <ui:ExcelApplicationScope.Body>
-                      <ActivityAction x:TypeArguments="ui:WorkbookApplication">
-                        <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
-                        </ActivityAction.Argument>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:ExcelAppendRange DataTable="[Saida]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelAppendRange_1" SheetName="Sheet1" />
-                        </Sequence>
-                      </ActivityAction>
-                    </ui:ExcelApplicationScope.Body>
-                  </ui:ExcelApplicationScope>
-                </Sequence>
-              </ui:CommentOut.Body>
-            </ui:CommentOut>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[Codigo+&quot;,&quot;+FirstName+&quot;,&quot;+LastName+&quot;,&quot;+Email+&quot;,&quot;+CPF]" />
+            <ui:GenerateDataTable ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" AutoDetectTypes="False" CSVParsing="True" ColumnSeparators="," DataTable="[Saida]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="653,200" sap2010:WorkflowViewState.IdRef="GenerateDataTable_3" Input="[Codigo+&quot;,&quot;+FirstName+&quot;,&quot;+LastName+&quot;,&quot;+Email+&quot;,&quot;+CPF]" />
+            <ui:AppendCsvFile Encoding="{x:Null}" DataTable="[Saida]" Delimitator="Comma" DisplayName="Append to CSV" FilePath="Load\Import.csv" sap:VirtualizedContainerService.HintSize="653,132" sap2010:WorkflowViewState.IdRef="AppendCsvFile_2" />
+            <ui:GenerateDataTable ColumnSeparators="{x:Null}" ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" AutoDetectTypes="False" CSVParsing="True" DataTable="[LastCodigo]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="653,200" sap2010:WorkflowViewState.IdRef="GenerateDataTable_4" Input="[Codigo]" />
+            <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="False" DataTable="[LastCodigo]" Delimitator="Comma" DisplayName="Write CSV" FilePath="Load\LastCod.csv" sap:VirtualizedContainerService.HintSize="653,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_3" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="653,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[Codigo+&quot;,&quot;+FirstName+&quot;,&quot;+LastName+&quot;,&quot;+Email+&quot;,&quot;+CPF]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="588,322" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,244" sap2010:WorkflowViewState.IdRef="Sequence_5">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="False" DataTable="[Saida]" Delimitator="Comma" DisplayName="Write CSV" FilePath="Load\Import.csv" sap:VirtualizedContainerService.HintSize="334,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" />
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
   </Sequence>
 </Activity>
