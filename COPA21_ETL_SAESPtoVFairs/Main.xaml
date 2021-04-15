@@ -57,6 +57,7 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap2010:Annotation.AnnotationText="Como Pré: precisamos informar o caminho do File, o robô precisará de permissões de leitura e escrita. Também preciamos informr as credenciais dos sistemas no Gerenciador do Windows ou do Orchestrator" DisplayName="Principal - Invocará todos os WorkFlows" sap:VirtualizedContainerService.HintSize="1054,1553" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -96,7 +97,7 @@
           <OutArgument x:TypeArguments="x:String">[File]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String">C:\temp\Export.xlsx</InArgument>
+          <InArgument x:TypeArguments="x:String">["C:\COPA2021\Export.xlsx"]</InArgument>
         </Assign.Value>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -113,7 +114,7 @@
               <av:PointCollection x:Key="ConnectorLocation">620,39.52 650,39.52 650,40 690,40</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Clean_Apps_Dados workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Clean\Clean_Apps_Dados.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Clean_Apps_Dados workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Clean\Clean_Apps_Dados.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:InvokeWorkflowFile.Arguments>

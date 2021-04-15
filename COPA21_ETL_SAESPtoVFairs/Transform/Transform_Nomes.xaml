@@ -268,9 +268,9 @@
               </Assign.Value>
             </Assign>
             <ui:GenerateDataTable ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" AutoDetectTypes="False" CSVParsing="True" ColumnSeparators="," DataTable="[Saida]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="653,200" sap2010:WorkflowViewState.IdRef="GenerateDataTable_3" Input="[FirstName+&quot;,&quot;+LastName+&quot;,&quot;+Email+&quot;,&quot;+CPF+&quot;,&quot;+CPF]" />
-            <ui:AppendCsvFile Encoding="{x:Null}" DataTable="[Saida]" Delimitator="Comma" DisplayName="Append to CSV" FilePath="C:\temp\Import.csv" sap:VirtualizedContainerService.HintSize="653,132" sap2010:WorkflowViewState.IdRef="AppendCsvFile_2" />
+            <ui:AppendCsvFile Encoding="{x:Null}" DataTable="[Saida]" Delimitator="Comma" DisplayName="Append to CSV" FilePath="C:\COPA2021\Import.csv" sap:VirtualizedContainerService.HintSize="653,132" sap2010:WorkflowViewState.IdRef="AppendCsvFile_2" />
             <ui:GenerateDataTable ColumnSeparators="{x:Null}" ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" AutoDetectTypes="False" CSVParsing="True" DataTable="[LastCodigo]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="653,200" sap2010:WorkflowViewState.IdRef="GenerateDataTable_4" Input="[Codigo]" />
-            <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="False" DataTable="[LastCodigo]" Delimitator="Comma" DisplayName="Write CSV" FilePath="Dados\LastCod.csv" sap:VirtualizedContainerService.HintSize="653,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_3" />
+            <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="False" DataTable="[LastCodigo]" Delimitator="Comma" DisplayName="Write CSV" FilePath="C:\COPA2021\LastCod.csv" sap:VirtualizedContainerService.HintSize="653,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_3" />
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="653,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[Codigo+&quot;,&quot;+FirstName+&quot;,&quot;+LastName+&quot;,&quot;+Email+&quot;,&quot;+CPF]" />
           </Sequence>
         </ActivityAction>

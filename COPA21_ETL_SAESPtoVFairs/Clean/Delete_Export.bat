@@ -1,3 +1,3 @@
 @echo off
 
-del "C:\temp\Export*.xlsx"
+del "C:\COPA2021\Export*.xlsx"
