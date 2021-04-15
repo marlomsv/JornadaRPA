@@ -124,7 +124,7 @@
                 <InArgument x:TypeArguments="x:String">[CurrentRow.Item(3).ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Remove Espaço Final do Nome" sap:VirtualizedContainerService.HintSize="653,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+            <Assign DisplayName="Remove Espaço Final do Nome" sap:VirtualizedContainerService.HintSize="653,60" sap2010:WorkflowViewState.IdRef="Assign_20">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[NomeCredencial]</OutArgument>
               </Assign.To>
