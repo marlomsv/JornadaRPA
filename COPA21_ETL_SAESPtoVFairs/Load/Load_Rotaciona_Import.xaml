@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Load_Rotaciona_Import" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="937,1390" sap2010:WorkflowViewState.IdRef="Load_Rotaciona_Import_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Load_Rotaciona_Import" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1029,1587" sap2010:WorkflowViewState.IdRef="Load_Rotaciona_Import_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
       <x:String>System.Activities</x:String>
@@ -61,22 +61,27 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Load_Rotaciona_Import" sap:VirtualizedContainerService.HintSize="947,1325" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Load_Rotaciona_Import" sap:VirtualizedContainerService.HintSize="1039,1522" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="DataHora" />
       <Variable x:TypeArguments="x:Boolean" Name="Existe" />
       <Variable x:TypeArguments="x:String" Name="Path" />
       <Variable x:TypeArguments="x:String" Name="InitialPath" />
+      <Variable x:TypeArguments="sd:DataTable" Name="Header" />
+      <Variable x:TypeArguments="x:String" Name="First" />
+      <Variable x:TypeArguments="x:String" Name="Last" />
+      <Variable x:TypeArguments="x:String" Name="Email" />
+      <Variable x:TypeArguments="x:String" Name="Password" />
+      <Variable x:TypeArguments="x:String" Name="CPF" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="905,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="997,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -106,21 +111,68 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:PathExists DisplayName="Path Exists" Exists="[Existe]" sap:VirtualizedContainerService.HintSize="905,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Path]" PathType="File" />
-    <If Condition="[Existe]" sap:VirtualizedContainerService.HintSize="905,904" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:PathExists DisplayName="Path Exists" Exists="[Existe]" sap:VirtualizedContainerService.HintSize="997,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Path]" PathType="File" />
+    <If Condition="[Existe]" sap:VirtualizedContainerService.HintSize="997,1101" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <ui:MoveFile ContinueOnError="{x:Null}" Destination="[InitialPath+DataHora+&quot;.csv&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="False" Path="[Path]" />
+        <Sequence sap:VirtualizedContainerService.HintSize="476,943" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="434,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[First]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">First</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[Last]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Last</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[Email]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Email</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[Password]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Password</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[CPF]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">CPF</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[InitialPath+DataHora+&quot;.csv&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="False" Path="[Path]" />
+          <ui:GenerateDataTable ColumnSeparators="{x:Null}" ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" AutoDetectTypes="False" CSVParsing="True" DataTable="[Header]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="434,200" sap2010:WorkflowViewState.IdRef="GenerateDataTable_2" Input="[First + &quot;,&quot; + Last + &quot;,&quot; + Email + &quot;,&quot; + Password + &quot;,&quot; + CPF]" UseColumnHeader="True" />
+          <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[Header]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Path]" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_2" />
+        </Sequence>
       </If.Then>
       <If.Else>
         <Sequence sap:VirtualizedContainerService.HintSize="476,746" sap2010:WorkflowViewState.IdRef="Sequence_2">
-          <Sequence.Variables>
-            <Variable x:TypeArguments="sd:DataTable" Name="Header" />
-            <Variable x:TypeArguments="x:String" Name="First" />
-            <Variable x:TypeArguments="x:String" Name="Last" />
-            <Variable x:TypeArguments="x:String" Name="Email" />
-            <Variable x:TypeArguments="x:String" Name="Password" />
-            <Variable x:TypeArguments="x:String" Name="CPF" />
-          </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
