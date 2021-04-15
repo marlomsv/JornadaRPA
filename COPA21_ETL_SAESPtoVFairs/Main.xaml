@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1044,1422" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1044,1618" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
       <x:String>System.Activities</x:String>
@@ -56,11 +56,10 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="Como Pré: precisamos informar o caminho do File, o robô precisará de permissões de leitura e escrita. Também preciamos informr as credenciais dos sistemas no Gerenciador do Windows ou do Orchestrator" DisplayName="Principal - Invocará todos os WorkFlows" sap:VirtualizedContainerService.HintSize="1054,1463" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="Como Pré: precisamos informar o caminho do File, o robô precisará de permissões de leitura e escrita. Também preciamos informr as credenciais dos sistemas no Gerenciador do Windows ou do Orchestrator" DisplayName="Principal - Invocará todos os WorkFlows" sap:VirtualizedContainerService.HintSize="1054,1553" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="File" />
       <Variable x:TypeArguments="x:Boolean" Name="Logado" />
@@ -77,14 +76,14 @@
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">80,40 110,40</av:PointCollection>
         <x:Double x:Key="Width">1020</x:Double>
-        <x:Double x:Key="Height">1385.02</x:Double>
+        <x:Double x:Key="Height">1475.02</x:Double>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID26</x:Reference>
+      <x:Reference>__ReferenceID27</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID26">
+    <FlowStep x:Name="__ReferenceID27">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">110,10</av:Point>
@@ -165,12 +164,8 @@
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Extract_Download_Dados workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Extract\Extract_Download_Dados.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="In_Path">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="File" />
-                          </InArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Out_Export">
-                            <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="Export" />
-                          </OutArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="In_Path">[File]</InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Out_Export">[Export]</OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -179,10 +174,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:InvokeWorkflowFile>
                       <FlowStep.Next>
-                        <FlowDecision x:Name="__ReferenceID13" DisplayName="Exportou?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
-                          <FlowDecision.Condition>
-                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Export" />
-                          </FlowDecision.Condition>
+                        <FlowDecision x:Name="__ReferenceID13" Condition="[Export]" DisplayName="Exportou?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -242,9 +234,7 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Load_Open_Browser_VFAIRS workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Load\Load_Open_Browser_VFAIRS.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Out_LogarVFAIRS">
-                                            <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="LogarVFAIRS" />
-                                          </OutArgument>
+                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Out_LogarVFAIRS">[LogarVFAIRS]</OutArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -253,10 +243,7 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:InvokeWorkflowFile>
                                       <FlowStep.Next>
-                                        <FlowDecision x:Name="__ReferenceID22" DisplayName="Precisa Logar?" sap:VirtualizedContainerService.HintSize="81,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
-                                          <FlowDecision.Condition>
-                                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="LogarVFAIRS" />
-                                          </FlowDecision.Condition>
+                                        <FlowDecision x:Name="__ReferenceID22" Condition="[LogarVFAIRS]" DisplayName="Precisa Logar?" sap:VirtualizedContainerService.HintSize="81,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -277,9 +264,7 @@
                                               </sap:WorkflowViewStateService.ViewState>
                                               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Load_Login_VFAIRS workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Load\Load_Login_VFAIRS.xaml">
                                                 <ui:InvokeWorkflowFile.Arguments>
-                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="Out_LogadoVFAIRS">
-                                                    <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="LogadoVFAIRS" />
-                                                  </OutArgument>
+                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="Out_LogadoVFAIRS">[LogadoVFAIRS]</OutArgument>
                                                 </ui:InvokeWorkflowFile.Arguments>
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -288,10 +273,7 @@
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </ui:InvokeWorkflowFile>
                                               <FlowStep.Next>
-                                                <FlowDecision x:Name="__ReferenceID10" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                                                  <FlowDecision.Condition>
-                                                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="LogadoVFAIRS" />
-                                                  </FlowDecision.Condition>
+                                                <FlowDecision x:Name="__ReferenceID10" Condition="[LogadoVFAIRS]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -331,9 +313,7 @@
                                                           </sap:WorkflowViewStateService.ViewState>
                                                           <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Delay_Import_VFAIRS workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Delay\Delay_Import_VFAIRS.xaml">
                                                             <ui:InvokeWorkflowFile.Arguments>
-                                                              <OutArgument x:TypeArguments="x:Boolean" x:Key="Out_Import">
-                                                                <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="Import" />
-                                                              </OutArgument>
+                                                              <OutArgument x:TypeArguments="x:Boolean" x:Key="Out_Import">[Import]</OutArgument>
                                                             </ui:InvokeWorkflowFile.Arguments>
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -342,10 +322,7 @@
                                                             </sap:WorkflowViewStateService.ViewState>
                                                           </ui:InvokeWorkflowFile>
                                                           <FlowStep.Next>
-                                                            <FlowDecision x:Name="__ReferenceID16" DisplayName="Importou?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
-                                                              <FlowDecision.Condition>
-                                                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Import" />
-                                                              </FlowDecision.Condition>
+                                                            <FlowDecision x:Name="__ReferenceID16" Condition="[Import]" DisplayName="Importou?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
                                                               <sap:WorkflowViewStateService.ViewState>
                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -361,7 +338,7 @@
                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                       <av:Point x:Key="ShapeLocation">250,1124.02</av:Point>
                                                                       <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                                                      <av:PointCollection x:Key="ConnectorLocation">250,1149.52 220,1149.52 220,1150 210,1150</av:PointCollection>
+                                                                      <av:PointCollection x:Key="ConnectorLocation">250,1149.52 210,1149.52</av:PointCollection>
                                                                     </scg:Dictionary>
                                                                   </sap:WorkflowViewStateService.ViewState>
                                                                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Load_Rotaciona_Import workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Load\Load_Rotaciona_Import.xaml">
@@ -375,15 +352,15 @@
                                                                     </sap:WorkflowViewStateService.ViewState>
                                                                   </ui:InvokeWorkflowFile>
                                                                   <FlowStep.Next>
-                                                                    <FlowStep x:Name="__ReferenceID23">
+                                                                    <FlowStep x:Name="__ReferenceID26">
                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                          <av:Point x:Key="ShapeLocation">10,1124.5</av:Point>
+                                                                          <av:Point x:Key="ShapeLocation">10,1124.02</av:Point>
                                                                           <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                                                          <av:PointCollection x:Key="ConnectorLocation">110,1175.5 110,1204.02</av:PointCollection>
+                                                                          <av:PointCollection x:Key="ConnectorLocation">110,1175.02 110,1224.5</av:PointCollection>
                                                                         </scg:Dictionary>
                                                                       </sap:WorkflowViewStateService.ViewState>
-                                                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Load_Close_Browser_VFAIRS workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Load\Load_Close_Browser_VFAIRS.xaml">
+                                                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Load_Logout_VFAIRS workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Load\Load_Logout_VFAIRS.xaml">
                                                                         <ui:InvokeWorkflowFile.Arguments>
                                                                           <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                                                         </ui:InvokeWorkflowFile.Arguments>
@@ -394,15 +371,15 @@
                                                                         </sap:WorkflowViewStateService.ViewState>
                                                                       </ui:InvokeWorkflowFile>
                                                                       <FlowStep.Next>
-                                                                        <FlowStep x:Name="__ReferenceID24">
+                                                                        <FlowStep x:Name="__ReferenceID23">
                                                                           <sap:WorkflowViewStateService.ViewState>
                                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                              <av:Point x:Key="ShapeLocation">10,1204.02</av:Point>
+                                                                              <av:Point x:Key="ShapeLocation">10,1224.5</av:Point>
                                                                               <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                                                              <av:PointCollection x:Key="ConnectorLocation">110,1255.02 110,1294.02</av:PointCollection>
+                                                                              <av:PointCollection x:Key="ConnectorLocation">110,1275.5 110,1324.02</av:PointCollection>
                                                                             </scg:Dictionary>
                                                                           </sap:WorkflowViewStateService.ViewState>
-                                                                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Extract_Close_Browser_SAESP workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Extract\Extract_Close_Browser_SAESP.xaml">
+                                                                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Load_Close_Browser_VFAIRS workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Load\Load_Close_Browser_VFAIRS.xaml">
                                                                             <ui:InvokeWorkflowFile.Arguments>
                                                                               <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                                                             </ui:InvokeWorkflowFile.Arguments>
@@ -413,20 +390,41 @@
                                                                             </sap:WorkflowViewStateService.ViewState>
                                                                           </ui:InvokeWorkflowFile>
                                                                           <FlowStep.Next>
-                                                                            <FlowStep x:Name="__ReferenceID25">
+                                                                            <FlowStep x:Name="__ReferenceID24">
                                                                               <sap:WorkflowViewStateService.ViewState>
                                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                                  <av:Point x:Key="ShapeLocation">10,1294.02</av:Point>
+                                                                                  <av:Point x:Key="ShapeLocation">10,1324.02</av:Point>
                                                                                   <av:Size x:Key="ShapeSize">200,51</av:Size>
+                                                                                  <av:PointCollection x:Key="ConnectorLocation">110,1375.02 110,1424.02</av:PointCollection>
                                                                                 </scg:Dictionary>
                                                                               </sap:WorkflowViewStateService.ViewState>
-                                                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;O Processo foi finalizado com SUCESSO!&quot;]">
+                                                                              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Extract_Close_Browser_SAESP workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Extract\Extract_Close_Browser_SAESP.xaml">
+                                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                                                                </ui:InvokeWorkflowFile.Arguments>
                                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                   </scg:Dictionary>
                                                                                 </sap:WorkflowViewStateService.ViewState>
-                                                                              </ui:LogMessage>
+                                                                              </ui:InvokeWorkflowFile>
+                                                                              <FlowStep.Next>
+                                                                                <FlowStep x:Name="__ReferenceID25">
+                                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                      <av:Point x:Key="ShapeLocation">10,1424.02</av:Point>
+                                                                                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                                                                                    </scg:Dictionary>
+                                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;O Processo foi finalizado com SUCESSO!&quot;]">
+                                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                                      </scg:Dictionary>
+                                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                                  </ui:LogMessage>
+                                                                                </FlowStep>
+                                                                              </FlowStep.Next>
                                                                             </FlowStep>
                                                                           </FlowStep.Next>
                                                                         </FlowStep>
@@ -627,5 +625,6 @@
     <x:Reference>__ReferenceID23</x:Reference>
     <x:Reference>__ReferenceID24</x:Reference>
     <x:Reference>__ReferenceID25</x:Reference>
+    <x:Reference>__ReferenceID26</x:Reference>
   </Flowchart>
 </Activity>
