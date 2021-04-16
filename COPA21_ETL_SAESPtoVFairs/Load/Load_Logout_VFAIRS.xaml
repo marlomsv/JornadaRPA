@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Load_Logout_VFAIRS" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1007,1018" sap2010:WorkflowViewState.IdRef="Load_Logout_VFAIRS_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Load_Logout_VFAIRS" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1007,978" sap2010:WorkflowViewState.IdRef="Load_Logout_VFAIRS_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -52,25 +52,25 @@
       <AssemblyReference>System.Memory</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Load_Logout_VFAIRS" sap:VirtualizedContainerService.HintSize="554,953" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Load_Logout_VFAIRS" sap:VirtualizedContainerService.HintSize="554,913" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetActiveWindow ApplicationWindow="{x:Null}" ContinueOnError="True" DisplayName="Get Active Window" sap:VirtualizedContainerService.HintSize="512,861" sap2010:WorkflowViewState.IdRef="GetActiveWindow_1">
+    <ui:GetActiveWindow ApplicationWindow="{x:Null}" ContinueOnError="True" DisplayName="Get Active Window" sap:VirtualizedContainerService.HintSize="512,821" sap2010:WorkflowViewState.IdRef="GetActiveWindow_1">
       <ui:GetActiveWindow.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,783" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,743" sap2010:WorkflowViewState.IdRef="Sequence_7">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" ContinueOnError="True" DisplayName="Attach Browser 'chrome.exe  Users'" sap:VirtualizedContainerService.HintSize="434,691" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="69fda7452e68a2f491b9d6d7c6f4e145" Selector="&lt;html app='chrome.exe' title='Users' /&gt;">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" ContinueOnError="True" DisplayName="Attach Browser 'chrome.exe  Users'" sap:VirtualizedContainerService.HintSize="434,651" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="69fda7452e68a2f491b9d6d7c6f4e145" Selector="&lt;html app='chrome.exe' title='Users' /&gt;">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -95,7 +95,7 @@
                         </ui:CursorPosition>
                       </ui:Click.CursorPosition>
                       <ui:Click.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e5e3ecf6-7435-4a3f-8e19-ff15b7e570dd" InformativeScreenshot="9fe0feae7e79c78d837c82090058f491" Selector="&lt;webctrl aaname='igor.baracho@poncetech.com.br' tag='SPAN' /&gt;">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e5e3ecf6-7435-4a3f-8e19-ff15b7e570dd" InformativeScreenshot="9fe0feae7e79c78d837c82090058f491" Selector="&lt;html app='chrome.exe' title='Dashboard' /&gt;&lt;webctrl aaname='*' tag='IMG' /&gt;">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
