@@ -1,19 +1,18 @@
 {
-  "name": "COPA21_ETL_SAESPtoVFairs",
-  "description": "Este robô tem como finalidade extrair os dados do sistema SAESP dos participantes do evento e em seguida Transformar  os dados, posteriormente gravando em um arquivo csv para que seja feito carga no sitema do vFAIRS. No final disto ele irá enviar um e-mail para os participantes com os dados de Login e Senha e o Direct Login Link.",
+  "name": "ETL_Solicitacao_Credito",
+  "description": "Você deve criar um workflow que seja capaz de:\r\n\r\nExtrair os dados que estão no arquivo de dados disponibilizado para download\r\nTransformar cada informação que está no arquivo em um padrão aceito pelo formulário web\r\nGravar cada informação nos seus respectivos campos do formulário web\r\nPontos de atenção:\r\n\r\nOs campos do formulário possuem regras de validação diferentes de como os dados estão formatados no arquivo\r\nO arquivo dados.csv não deve ser alterado, portanto, todo ajuste de formatação dev",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Credentials.Activities": "[1.1.6479.13204]",
-    "UiPath.Excel.Activities": "[2.10.4]",
-    "UiPath.Mail.Activities": "[1.10.4]",
-    "UiPath.System.Activities": "[21.4.0]",
-    "UiPath.UIAutomation.Activities": "[21.4.3]"
+    "UiPath.Excel.Activities": "[2.10.2-preview]",
+    "UiPath.Mail.Activities": "[1.10.2-preview]",
+    "UiPath.System.Activities": "[21.2.1-preview]",
+    "UiPath.UIAutomation.Activities": "[21.2.0-preview]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.2.0.0",
-  "projectVersion": "1.0.3",
+  "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
@@ -44,7 +43,7 @@
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "b7bd738a-f63a-48ad-86f9-2f9c6982bc4d",
+      "uniqueId": "66b7e426-d824-4216-9a5f-797db5cbb131",
       "input": [],
       "output": []
     }

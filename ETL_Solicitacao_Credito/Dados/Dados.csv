@@ -1,0 +1,28 @@
+ID,Nome,Pais,Cidade,Email,DataNascimento,Solicitacao,Aprovado,TIPO
+ID0001,Alex Diogo,BR,Rio de Janeiro,alex.diogo@desafiosrpa.com.br,22-dez-1988,22-Jan-2019,S,PROFISSIONAL
+ID0002,Roberto Miguel,BR,Rio de Janeiro,roberto.miguel@desafiosrpa.com.br,07-mai-1988,22-Fev-2019,N,PROFISSIONAL
+ID0003,Silvia Santos,BR,São Paulo,silvia.santos@desafiosrpa.com.br,24-mar-1986,22-Jan-2019,S,PROFISSIONAL
+ID0004,Marcelo Xavier,BR,Rio de Janeiro,marcelo.xavier@desafiosrpa.com.br,16-mai-1983,22-Jan-2018,S,PROFISSIONAL
+ID0005,Marcos Costa,BR,Minas Gerais,marcos.costa@desafiosrpa.com.br,29-set-1985,23-Jul-2019,N,PROFISSIONAL
+ID0006,Willian Share,USA,Miami,willian.share@desafiosrpa.com.br,24-dez-1990,23-Jul-2019,N,PROFISSIONAL
+ID0007,Gilberto Andrade,BR,Mato Grosso do Sul,gilberto.andrade@desafiosrpa.com.br,14-dez-1983,23-Jul-2019,N,PROFISSIONAL
+ID0008,Viviane Silveira,BR,Rondônia,viviane.silveira@desafiosrpa.com.br,01-nov-1980,24-Jul-2019,N,PROFISSIONAL
+ID0009,Joao Santos,BR,Rio de Janeiro,joao.santos@desafiosrpa.com.br,20-nov-1982,24-Jul-2019,N,PROFISSIONAL
+ID0010,Pedro Henrique,BR,São Paulo,pedro.henrique@desafiosrpa.com.br,28-dez-1987,25-Jul-2019,N,PROFISSIONAL
+ID0011,Sueli Santos,BR,Rio de Janeiro,Sueli.santos@desafiosrpa.com.br,08-out-1983,25-Jul-2019,S,PESSOAL
+ID0012,Daniel Mark,USA,Florida,daniel.mark@desafiosrpa.com.br,13-abr-1980,25-Jul-2019,S,PESSOAL
+ID0013,Ester Maria,BR,Rio de Janeiro,ester.maria@desafiosrpa.com.br,20-ago-1989,26-Jul-2019,S,PESSOAL
+ID0014,Gloria Maria,BR,São Paulo,gloria.maria@desafiosrpa.com.br,22-fev-1980,20-Ago-2019,S,PESSOAL
+ID0015,Sandro Augusto,BR,São Paulo,sandro.augusto@desafiosrpa.com.br,09-fev-1981,20-Ago-2019,S,PESSOAL
+ID0016,Fernanda Paula,BR,Rio de Janeiro,fernanda.paula@desafiosrpa.com.br,20-mai-1990,20-Ago-2019,N,PESSOAL
+ID0017,Joana Andrade,BR,São Paulo,joana.andrade@desafiosrpa.com.br,11-abr-1987,20-Ago-2019,N,PESSOAL
+ID0018,Sergio Mandu,BR,Para¡ba,sergio.mandu@desafiosrpa.com.br,09-nov-1986,20-Ago-2019,N,PESSOAL
+ID0019,Erika Santana,BR,Rio de Janeiro,erika.santana@desafiosrpa.com.br,17-jan-1988,25-Set-2019,N,PESSOAL
+ID0020,Sander Willian,USA,Florida,sander.willian@desafiosrpa.com.br,11-set-1990,25-Set-2019,N,ESTUDANTIL
+ID0021,Monica Castello,BR,Tocantins,monica.castello@desafiosrpa.com.br,15-set-1986,25-Set-2019,S,ESTUDANTIL
+ID0022,Rodrigo Jorge,BR,São Paulo,rodrigo.jorge@desafiosrpa.com.br,20-nov-1982,25-Set-2019,S,ESTUDANTIL
+ID0023,Wagner Rio de Janeiro,BR,Tocantins,wagner.janeiro@desafiosrpa.com.br,13-jun-1986,25-Set-2019,S,ESTUDANTIL
+ID0024,Claudio Farinaceo,ITA,Verona,claudio.farinaceo@desafiosrpa.com.br,01-jun-1990,25-Set-2019,S,ESTUDANTIL
+ID0025,Liliane Santos,BR,Rio de Janeiro,liliane.santos@desafiosrpa.com.br,01-mar-1984,25-Set-2019,S,ESTUDANTIL
+ID0026,Luiz Gustavo,BR,São Paulo,luiz.gustavo@desafiosrpa.com.br,20-mai-1985,25-Set-2019,S,ESTUDANTIL
+ID0027,Sonia Mello,BR,Minas Gerais,sonia.mello@desafiosrpa.com.br,21-abr-1984,25-Set-2019,S,ESTUDANTIL
