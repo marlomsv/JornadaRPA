@@ -47,7 +47,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="21">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -69,6 +69,7 @@
       <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="OCR_Extrair_Dados" sap:VirtualizedContainerService.HintSize="768,1772" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -83,19 +84,19 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:AnchorBase AnchorPosition="Auto" DisplayName="Anchor Base -Identificação" sap:VirtualizedContainerService.HintSize="726,289" sap2010:WorkflowViewState.IdRef="AnchorBase_4">
+    <ui:AnchorBase AnchorPosition="Auto" DisplayName="Anchor Base -Identificação" sap:VirtualizedContainerService.HintSize="726,329" sap2010:WorkflowViewState.IdRef="AnchorBase_4">
       <ui:AnchorBase.Action>
         <ActivityAction x:TypeArguments="ui:Anchor">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
           </ActivityAction.Argument>
-          <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'texto  ID001.png'" sap:VirtualizedContainerService.HintSize="334,197" sap2010:WorkflowViewState.IdRef="GetOCRText_4">
+          <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'texto  ID001.png'" sap:VirtualizedContainerService.HintSize="334,237" sap2010:WorkflowViewState.IdRef="GetOCRText_4">
             <ui:GetOCRText.OCREngine>
               <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
                 <ActivityFunc.Argument>
                   <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
                 </ActivityFunc.Argument>
-                <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Language="{x:Null}" Output="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GoogleOCR_4" Image="[Image]" Invert="True" Profile="Screen">
+                <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Output="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GoogleOCR_4" Image="[Image]" Invert="True" Language="por" Profile="Screen">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -154,7 +155,7 @@
                 <ActivityFunc.Argument>
                   <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
                 </ActivityFunc.Argument>
-                <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="300,79" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" />
+                <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="300,79" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" Language="por" />
               </ActivityFunc>
             </ui:GetOCRText.OCREngine>
             <ui:GetOCRText.Target>
@@ -194,19 +195,19 @@
         </ui:WaitUiElementAppear>
       </ui:AnchorBase.AnchorProvider>
     </ui:AnchorBase>
-    <ui:AnchorBase AnchorPosition="Auto" DisplayName="Anchor Base - Nome Completo" sap:VirtualizedContainerService.HintSize="726,357" sap2010:WorkflowViewState.IdRef="AnchorBase_2">
+    <ui:AnchorBase AnchorPosition="Auto" DisplayName="Anchor Base - Nome Completo" sap:VirtualizedContainerService.HintSize="726,317" sap2010:WorkflowViewState.IdRef="AnchorBase_2">
       <ui:AnchorBase.Action>
         <ActivityAction x:TypeArguments="ui:Anchor">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
           </ActivityAction.Argument>
-          <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'texto  ID001.png'" sap:VirtualizedContainerService.HintSize="334,265" sap2010:WorkflowViewState.IdRef="GetOCRText_2">
+          <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'texto  ID001.png'" sap:VirtualizedContainerService.HintSize="334,225" sap2010:WorkflowViewState.IdRef="GetOCRText_2">
             <ui:GetOCRText.OCREngine>
               <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
                 <ActivityFunc.Argument>
                   <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
                 </ActivityFunc.Argument>
-                <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="300,79" sap2010:WorkflowViewState.IdRef="GoogleOCR_2" Image="[Image]" />
+                <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="300,79" sap2010:WorkflowViewState.IdRef="GoogleOCR_2" Image="[Image]" Language="por" />
               </ActivityFunc>
             </ui:GetOCRText.OCREngine>
             <ui:GetOCRText.Target>
@@ -258,7 +259,7 @@
                 <ActivityFunc.Argument>
                   <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
                 </ActivityFunc.Argument>
-                <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="300,79" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" />
+                <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="300,79" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" Language="por" />
               </ActivityFunc>
             </ui:GetOCRText.OCREngine>
             <ui:GetOCRText.Target>

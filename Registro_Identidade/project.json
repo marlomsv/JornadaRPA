@@ -3,6 +3,7 @@
   "description": "2. Desafio Monitoring (Intermediário)\r\nVocê deve criar um workflow que seja capaz de:\r\n\r\nMonitorar quando novos documentos de identidade digitalizados forem gravados numa determinada pasta.\r\nAbrir esse documento de identidade digital e extrair seus dados.\r\nRegistrar as informações de ID, Nome e Data de Nascimento, nas respectivas abas da planilha (Disponível no Download), dependendo das informações extraídas de cada documento.\r\nMover esse documento para outra pasta, indicando que o processo foi ",
   "main": "Main.xaml",
   "dependencies": {
+    "Extrair_Identidade": "[1.0.1]",
     "UiPath.Excel.Activities": "[2.10.2-preview]",
     "UiPath.Mail.Activities": "[1.10.2-preview]",
     "UiPath.System.Activities": "[21.2.1-preview]",
