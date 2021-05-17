@@ -1,0 +1,54 @@
+{
+  "name": "Projeto_Final",
+  "description": "Robotic Enterprise FrameworkAcessar o site de CRM por esse LINK, realizando o Login com a seguinte credencial:\r\nUsuário: aluno\r\nSenha: desafiosrpa\r\nPreencher o terceiro campo do Login com o resultado do cálculo da expressão apresentada pelo site.\r\nExtrair os dados dos clientes que:\r\nRealizaram o pagamento das faturas em moedas estrangeiras (Faturamento->Pagamentos)\r\n(Opcional)Buscar, em qualquer fonte, a cotação da respectiva moeda do dia em que o pagamento foi realizado\r\n(Opcional)Fazer a conve",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.Excel.Activities": "[2.10.2-preview]",
+    "UiPath.System.Activities": "[21.2.1-preview]",
+    "UiPath.UIAutomation.Activities": "[21.2.0-preview]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "21.2.0.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "805ce4ce-f55b-472d-89da-381e56b550cd",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Legacy"
+}
