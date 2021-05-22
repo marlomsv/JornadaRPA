@@ -3,13 +3,21 @@
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
+    "UiPath.DataService.Activities": "[21.1.2]",
     "UiPath.Excel.Activities": "[2.10.2-preview]",
     "UiPath.Mail.Activities": "[1.10.2-preview]",
     "UiPath.System.Activities": "[21.2.1-preview]",
     "UiPath.UIAutomation.Activities": "[21.2.0-preview]"
   },
   "webServices": [],
-  "entitiesStores": [],
+  "entitiesStores": [
+    {
+      "serviceDocument": ".entities/EntitiesStore.json",
+      "tenantName": "Marlo",
+      "namespace": "Robo_Data_Services",
+      "uniqueReference": "tuL2MmR0T5a7l5sJIvleLzAYwX+3ZCqXRHOuojOMoU8="
+    }
+  ],
   "schemaVersion": "4.0",
   "studioVersion": "21.2.0.0",
   "projectVersion": "1.0.0",
