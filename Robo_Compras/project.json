@@ -4,7 +4,9 @@
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.10.2-preview]",
+    "UiPath.FormActivityLibrary": "[1.2.1-preview]",
     "UiPath.Mail.Activities": "[1.10.2-preview]",
+    "UiPath.Persistence.Activities": "[1.2.2]",
     "UiPath.System.Activities": "[21.2.1-preview]",
     "UiPath.UIAutomation.Activities": "[21.2.0-preview]"
   },
@@ -17,7 +19,7 @@
     "autoDispose": false,
     "isPausable": true,
     "requiresUserInteraction": true,
-    "supportsPersistence": false,
+    "supportsPersistence": true,
     "excludedLoggedData": [
       "Private:*",
       "*password*"
